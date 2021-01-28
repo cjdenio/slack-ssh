@@ -5,6 +5,8 @@ const CHANNEL = process.env.SLACK_CHANNEL;
 
 const ssh = new NodeSSH();
 
+console.log(`SSH key path: ${process.env.SSH_PRIVATE_KEY_PATH}`);
+
 ssh
   .connect({
     host: process.env.SSH_HOST,
