@@ -4,6 +4,8 @@ WORKDIR /usr/src/app
 
 COPY . .
 
+ARG SSH_PRIVATE_KEY
+
 RUN echo ${SSH_PRIVATE_KEY} | base64 -d > slack_rsa
 RUN cat slack_rsa
 
