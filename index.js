@@ -12,7 +12,7 @@ ssh
     privateKey: process.env.SSH_PRIVATE_KEY_PATH,
   })
   .then(() => {
-    console.log("connected");
+    console.log("connected to ssh");
   });
 
 const app = new App({
@@ -22,7 +22,11 @@ const app = new App({
 });
 
 app.message(async ({ message, say }) => {
-  if (message.channel == CHANNEL) {
+  if (
+    message.channel == CHANNEL &&
+    message.text != "" &&
+    message.thread_ts == null
+  ) {
     console.log(`executing: ${message.text}`);
 
     const result = await ssh.execCommand(message.text);
