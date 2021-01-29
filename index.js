@@ -27,10 +27,16 @@ app.message(async ({ message, say }) => {
     message.text != "" &&
     message.thread_ts == null
   ) {
+    if (message.text.startsWith("# ")) {
+      return;
+    }
+
     console.log(`executing: ${message.text}`);
 
     const result = await ssh.execCommand(message.text);
+
     let text = "_no text_";
+
     if (result.stdout != "") {
       text = result.stdout;
     } else if (result.stderr != "") {
