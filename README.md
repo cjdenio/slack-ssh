@@ -2,6 +2,14 @@
 
 Minimal SSH in Slack!
 
+## Usage
+
+Every message you send to the channel will be interpreted as a one-off command. Super easy.
+
+`cd` doesn't work, so run `cd dir/; my-command` to run a given command in the given directory.
+
+Prefix any message with `# ` to _not_ execute it (e.g. `# what's up guys?`)
+
 ## Hosting
 
 Requirements:
