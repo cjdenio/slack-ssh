@@ -38,9 +38,9 @@ app.message(async ({ message, say }) => {
     let text = "_no text_";
 
     if (result.stdout != "") {
-      text = result.stdout;
+      text = "```\n"+result.stdout+"\n```";
     } else if (result.stderr != "") {
-      text = result.stderr;
+      text = "```\n"+result.stderr+"\n```";
     }
 
     await say(text);
