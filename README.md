@@ -18,12 +18,14 @@ Requirements:
 - A server to SSH into, with SSH set up and configured
 - An SSH key pair, with the public key installed on the server
 
-First, create a Slack app. Enable Socket Mode, and subscribe to the `message.channels` bot event. Create a bot token with the `chat.write` scope.
+First, create a Slack app. Subscribe to the `message.channels` bot event, then create a bot token with the `chat.write` scope.
+
+Point your events to the `<your app>/slack/events` endpoint.
 
 ### Environment variables
 
 ```
-SLACK_APP_TOKEN = your slack app's app-level token
+SLACK_SIGNING_SECRET = your Slack app's signing secret
 SLACK_BOT_TOKEN = the bot token
 SLACK_CHANNEL = the ID of the channel you're running SSH in (the bot must be a member of this channel)
 

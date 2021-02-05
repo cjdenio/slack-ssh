@@ -16,9 +16,8 @@ ssh
   });
 
 const app = new App({
-  appToken: process.env.SLACK_APP_TOKEN,
+  signingSecret: process.env.SLACK_SIGNING_SECRET,
   token: process.env.SLACK_BOT_TOKEN,
-  socketMode: true,
 });
 
 app.message(async ({ message, say }) => {
@@ -48,6 +47,6 @@ app.message(async ({ message, say }) => {
 });
 
 (async () => {
-  await app.start();
+  await app.start(process.env.PORT || 3000);
   console.log("⚡️ Bolt app started");
 })();
